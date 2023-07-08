@@ -11,10 +11,15 @@ import { useMusicPlayerContext } from "../context/MusicPlayerContext";
 
 interface MusicPlayerProps {
   musicPaths: string[];
+  musicTitles: string[];
   onBackgroundChange: () => void;
 }
 
-const MusicPlayer: React.FC<MusicPlayerProps> = ({ musicPaths, onBackgroundChange }) => {
+const MusicPlayer: React.FC<MusicPlayerProps> = ({
+  musicPaths,
+  musicTitles,
+  onBackgroundChange,
+}) => {
   const { isPlaying, setIsPlaying, currentTime, setCurrentTime } =
     useMusicPlayerContext();
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0);
@@ -57,7 +62,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ musicPaths, onBackgroundChang
     }
   }, [isPlaying]);
 
-  const currentMusic = musicPaths[currentMusicIndex];
+  const currentMusic = musicTitles[currentMusicIndex];
 
   const handlePlay = () => {
     if (!isPlaying) {
