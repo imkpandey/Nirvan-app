@@ -1,5 +1,5 @@
 import { Setting4 } from "iconsax-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 
 const soundList = [
@@ -38,18 +38,7 @@ const soundList = [
 ];
 
 const Sounds = () => {
-  const [volume, setVolume] = useState<number[]>([]);
-
-  useEffect(() => {
-    const storedVolume = localStorage.getItem("soundVolume");
-    if (storedVolume) {
-      setVolume(JSON.parse(storedVolume));
-    } else {
-      const initialVolume = soundList.map(() => 0);
-      setVolume(initialVolume);
-      localStorage.setItem("soundVolume", JSON.stringify(initialVolume));
-    }
-  }, []);
+  const [volume, setVolume] = useState<number[]>([0]);
 
   const handleSliderChange = (index: number, value: number) => {
     const newVolume = [...volume];
