@@ -41,13 +41,13 @@ const Navbar = () => {
           </h1>
         </div>
         <div
-          className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 tooltip tooltip-bottom"
+          className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-bottom"
           data-tip="Pomodoro Timer"
         >
           <Timer1 size={18} color="white" className="cursor-pointer" />
         </div>
         <div
-          className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 tooltip tooltip-bottom"
+          className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-bottom"
           data-tip="Fullscreen"
           onClick={handleFullScreen}
         >

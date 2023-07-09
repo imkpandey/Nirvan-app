@@ -109,7 +109,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
   return (
     <>
       <div
-        className="absolute top-0 left-1/2 p-2 mt-6 bg-black opacity-80 rounded-lg hover:opacity-90 tooltip tooltip-bottom"
+        className="absolute top-0 left-1/2 p-2 mt-6 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-bottom"
         onClick={handleShuffleClick}
         data-tip="Change Background"
       >
