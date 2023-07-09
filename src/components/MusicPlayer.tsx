@@ -109,14 +109,14 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
   return (
     <>
       <div
-        className="absolute top-0 left-1/2 p-2 mt-6 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-bottom"
+        className="absolute top-0 left-1/2 p-2 mt-6 bg-black bg-opacity-50 rounded-lg hover:bg-opacity-90 md:tooltip md:tooltip-bottom"
         onClick={handleShuffleClick}
         data-tip="Change Background"
       >
         <Shuffle size={18} color="white" className="cursor-pointer" />
       </div>
       <div className="absolute left-0 bottom-0">
-        <div className="flex flex-col bg-black opacity-80 space-y-3 p-6 rounded-se-lg max-w-lg">
+        <div className="flex flex-col bg-black opacity-80 space-y-3 p-6 rounded-se-lg w-screen md:w-full">
           <div>
             <div className="text-white">{currentMusic}</div>
           </div>

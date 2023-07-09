@@ -32,7 +32,7 @@ const Navbar = () => {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
       <div className="flex items-center space-x-2">
-        <div className="bg-black opacity-90 text-white p-2 rounded-lg hover:opacity-100">
+        <div className="bg-black bg-opacity-50 text-white p-2 rounded-lg hover:bg-opacity-100">
           <h1 className="text-xl">
             {time.getHours()}:
             {time.getMinutes() < 10
@@ -41,13 +41,13 @@ const Navbar = () => {
           </h1>
         </div>
         <div
-          className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-bottom"
+          className="p-2 bg-black bg-opacity-50 rounded-lg hover:bg-opacity-90 md:tooltip md:tooltip-bottom"
           data-tip="Pomodoro Timer"
         >
           <Timer1 size={18} color="white" className="cursor-pointer" />
         </div>
         <div
-          className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-bottom"
+          className="p-2 bg-black bg-opacity-50 rounded-lg hover:bg-opacity-90 md:tooltip md:tooltip-bottom"
           data-tip="Fullscreen"
           onClick={handleFullScreen}
         >

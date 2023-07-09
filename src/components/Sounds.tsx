@@ -51,7 +51,7 @@ const Sounds = () => {
     <div className="absolute right-0 bottom-1/2 p-4 dropdown dropdown-center dropdown-left">
       <div
         tabIndex={0}
-        className="p-2 bg-black opacity-80 rounded-lg hover:opacity-90 md:tooltip md:tooltip-left"
+        className="p-2 bg-black bg-opacity-50 rounded-lg hover:bg-opacity-90 md:tooltip md:tooltip-left"
         data-tip="Sound Effects"
       >
         <Setting4 size={18} color="white" className="cursor-pointer" />
