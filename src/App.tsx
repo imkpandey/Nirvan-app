@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import MusicPlayer from "./components/MusicPlayer";
 import Sounds from "./components/Sounds";
 import { MusicPlayerProvider } from "./context/MusicPlayerContext";
-import "./App.css"
+import "./App.css";
 
 function App() {
   const backgroundVideos: string[] = [
@@ -22,31 +22,34 @@ function App() {
 
   const musicPaths = [
     {
-    path: "https://drive.google.com/uc?id=12tAtigcAp8M0D5veI40L9_P9KBcs1oHp",
-    title: "Claire De Lune (Studio Version)" 
+      path: "https://drive.google.com/uc?id=12tAtigcAp8M0D5veI40L9_P9KBcs1oHp",
+      title: "Claire De Lune (Studio Version)",
     },
     {
-    path: "https://drive.google.com/uc?id=1OXIrtaI4_LPmwMgQnfwbjVWepVhsmOjn",
-    title: "Interstellar Main Theme - Extra Extended"
+      path: "https://drive.google.com/uc?id=1OXIrtaI4_LPmwMgQnfwbjVWepVhsmOjn",
+      title: "Interstellar Main Theme - Extra Extended",
     },
     {
-    path: "https://drive.google.com/uc?id=1BxzDU0-c7zOi25yH0EQGT7uz0NGNanOV", 
-    title: "Joe Hisaishi - Merry-Go-Round of Life (Howl's Moving Castle)"
+      path: "https://drive.google.com/uc?id=1BxzDU0-c7zOi25yH0EQGT7uz0NGNanOV",
+      title: "Joe Hisaishi - Merry-Go-Round of Life (Howl's Moving Castle)",
     },
     {
-    path:"https://drive.google.com/uc?id=18OxJxrO4hChclYvEundvu5T4u918YeVt",
-    title: "Peace"
+      path: "https://drive.google.com/uc?id=18OxJxrO4hChclYvEundvu5T4u918YeVt",
+      title: "Peace",
     },
     {
-    path:"https://drive.google.com/uc?id=1CDxEmlLuHI5ABtC1IZZfoutjW-KVk5Fo",      
-    title: "POV_you are studying with some classical music in an ancient academy"
+      path:
+        "https://drive.google.com/uc?id=1CDxEmlLuHI5ABtC1IZZfoutjW-KVk5Fo",
+      title: "POV_you are studying with some classical music in an ancient academy",
     },
     {
-    path:"https://drive.google.com/uc?id=1UdL6IAEullhxee7L1nJqEjtsadUCTGsg",
-    title: "Studying with poets long gone - A DARK ACADEMIA PLAYLIST (classical)" 
+      path: "https://drive.google.com/uc?id=1UdL6IAEullhxee7L1nJqEjtsadUCTGsg",
+      title: "Studying with poets long gone - A DARK ACADEMIA PLAYLIST (classical)",
     },
   ];
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+
+const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const handleBackgroundChange = () => {
     const nextIndex = (currentVideoIndex + 1) % backgroundVideos.length;
@@ -54,41 +57,31 @@ function App() {
   };
 
   useEffect(() => {
-    const videos = document.querySelectorAll(".background-video");
-    videos.forEach((video, index) => {
-      if (index === currentVideoIndex) {
-        video.classList.remove("hidden");
-      } else {
-        video.classList.add("hidden");
-      }
-    });
+    const video = document.getElementById(
+      "background-video"
+    ) as HTMLVideoElement;
+    video.src = backgroundVideos[currentVideoIndex];
   }, [currentVideoIndex, backgroundVideos]);
 
   return (
     <MusicPlayerProvider>
       <div className="absolute top-0 left-0 w-full h-full bg-black overflow-hidden">
-        {backgroundVideos.map((url, index) => (
-          <video
-            key={index}
-            className={`absolute bottom-0 left-0 min-w-full min-h-full object-cover transition-all ease-in ${
-              index !== currentVideoIndex ? "hidden" : ""
-            }`}
-            preload="auto"
-            autoPlay
-            muted
-            loop
-          >
-            <source src={url} type="video/mp4" />
-          </video>
-        ))}
+        <video
+          id="background-video"
+          className="absolute bottom-0 left-0 min-w-full min-h-full object-cover transition-all ease-in"
+          preload="auto"
+          autoPlay
+          muted
+          loop
+        >
+          <source src={backgroundVideos[currentVideoIndex]} type="video/mp4" />
+        </video>
       </div>
       <Navbar />
       <Sounds />
-      <MusicPlayer
-        musicPaths={musicPaths.map((music) => music.path)}
+      <MusicPlayer musicPaths={musicPaths.map((music) => music.path)}
         musicTitles={musicPaths.map((music) => music.title)}
-        onBackgroundChange={handleBackgroundChange}
-      />
+        onBackgroundChange={handleBackgroundChange} />
     </MusicPlayerProvider>
   );
 }

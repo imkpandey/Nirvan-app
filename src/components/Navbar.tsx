@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full h-20 flex items-center justify-between pl-10 pr-4 text-white">
       <div className="flex items-center">
-        <img src={Logo} alt="Logo" className="h-12" />{" "}
+        <img src={Logo} alt="Logo" className="h-12" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
       <div className="flex items-center space-x-2">
